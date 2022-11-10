@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Bus Station Alarm</string>
+    <string name="mapkit_key" translatable="false">a317c7c0-3ff8-4b28-a657-fbc776c9d9ac</string>
+
+    <string name="location_deleted">Точка удалена</string>
+    <string name="delete_location">Удалить точку</string>
+    <string name="add_location">Точка добавлена</string>
+    <string name="name_cant_be_empty">Имя не может быть пустым</string>
+    <string name="save_location">Сохранить точку</string>
+    <string name="name">Имя</string>
+    <string name="latitude">Широта</string>
+    <string name="longitude">Долгота</string>
+</resources>

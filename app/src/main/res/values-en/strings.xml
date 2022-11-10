@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bus Station Alarm</string>
+    <string name="location_deleted">Location deleted</string>
+    <string name="delete_location">Delete location</string>
+    <string name="add_location">Location added</string>
+    <string name="name_cant_be_empty">Name can\'t be empty</string>
+    <string name="save_location">Save location</string>
+    <string name="name">Name</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+</resources>
