@@ -38,8 +38,7 @@ fun AddEditLocationScreen(
         }
     }
     Scaffold(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         floatingActionButton = {
             FloatingActionButton(onClick = {
                 viewModel.onEvent(AddEditLocationEvent.OnSaveLocationClick)

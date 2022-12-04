@@ -63,7 +63,6 @@ class MainActivity : ComponentActivity() {
                         type = NavType.IntType
                         defaultValue = -1
                     })) {
-
                         AddEditLocationScreen(onPopBackStack = { navController.popBackStack() })
                     }
                 }
