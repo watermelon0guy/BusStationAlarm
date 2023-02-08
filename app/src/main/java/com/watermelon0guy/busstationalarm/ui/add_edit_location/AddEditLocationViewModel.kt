@@ -1,5 +1,6 @@
 package com.watermelon0guy.busstationalarm.ui.add_edit_location
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -38,6 +39,7 @@ class AddEditLocationViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
+        Log.i("AddEditLocationViewModelInit", "Edit VM init")
         val locationId = savedStateHandle.get<Int>("locationId")!!
         if (locationId != -1) {
             viewModelScope.launch {

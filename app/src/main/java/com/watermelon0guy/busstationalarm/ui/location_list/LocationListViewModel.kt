@@ -1,5 +1,6 @@
 package com.watermelon0guy.busstationalarm.ui.location_list
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.busstationalarm.R
@@ -24,6 +25,10 @@ class LocationListViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     private var deletedLocationPoint: LocationPoint? = null
+
+    init {
+        Log.i("LocationListViewModelInit", "List VM init")
+    }
 
     fun onEvent(event: LocationListEvent) {
         when(event) {

@@ -4,9 +4,12 @@ import android.app.Application
 import android.location.LocationManager
 import androidx.activity.ComponentActivity
 import androidx.room.Room
+import com.example.busstationalarm.R
 import com.watermelon0guy.busstationalarm.data.LocationDatabase
 import com.watermelon0guy.busstationalarm.data.LocationRepository
 import com.watermelon0guy.busstationalarm.data.LocationRepositoryImpl
+import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.mapview.MapView
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
