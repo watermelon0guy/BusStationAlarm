@@ -54,6 +54,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             BusStationAlarmTheme {
                 val navController = rememberNavController()
+                // инициализируем ключ API для карт TODO("убрать ключ из ресурсов")
+                MapKitFactory.setApiKey(getString(R.string.mapkit_key))
                 NavHost(navController = navController, startDestination = Routes.LOCATION_LIST) {
                     composable(Routes.LOCATION_LIST) {
                         LocationListScreen(onNavigate = { navController.navigate(it.route) })
