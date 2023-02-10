@@ -75,13 +75,3 @@ fun LocationListScreen(
         }
     }
 }
-
-@Preview
-@Composable
-fun ScreenPreview() {
-    Surface(modifier = Modifier
-        .height(100.dp)
-        .width(400.dp)) {
-        LocationPointItem(modifier = Modifier.fillMaxWidth(), locP = LocationPoint("check", 40.0, 50.0, isChosen = false), onEvent = {})
-    }
-}

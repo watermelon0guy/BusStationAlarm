@@ -31,7 +31,7 @@ fun LocationPointItem(
             Icon(imageVector = Icons.Default.Delete,
                 contentDescription = BusStationAlarmApp.resourses.getString(R.string.delete_location))
         }
-        Switch(checked = locP.isChosen ,
+        Switch(checked = locP.isChosen,
             onCheckedChange = {isChosen ->
                 onEvent(LocationListEvent.OnChosenChange(locP, isChosen))
             })

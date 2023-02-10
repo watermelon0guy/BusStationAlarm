@@ -1,5 +1,6 @@
 package com.watermelon0guy.busstationalarm.ui.location_list
 
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,9 +10,10 @@ import com.watermelon0guy.busstationalarm.data.LocationPoint
 import com.watermelon0guy.busstationalarm.data.LocationRepository
 import com.watermelon0guy.busstationalarm.util.Routes
 import com.watermelon0guy.busstationalarm.util.UiEvent
+import com.watermelon0guy.busstationalarm.util.location.LocationService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -60,7 +62,38 @@ class LocationListViewModel @Inject constructor(
                     repository.insertLocationPoint(
                         event.locationPoint.copy(isChosen = event.isChosen)
                     )
+                    for (point in locationPoints.first()) {
+                        if (point.id == event.locationPoint.id)
+                            repository.insertLocationPoint(
+                                point.copy(isChosen = event.isChosen)
+                            )
+                        else
+                            repository.insertLocationPoint(
+                                point.copy(isChosen = false)
+                            )
+                    }
                 }
+                if (event.isChosen) {
+                    Intent(
+                        BusStationAlarmApp.instance.applicationContext,
+                        LocationService::class.java
+                    ).apply {
+                        action = LocationService.ACTION_STOP
+                        BusStationAlarmApp.instance.applicationContext.stopService(this)
+                    }
+                    Intent(
+                        BusStationAlarmApp.instance.applicationContext,
+                        LocationService::class.java
+                    ).apply {
+                        action = LocationService.ACTION_START
+                        BusStationAlarmApp.instance.applicationContext.startService(this)
+                    }
+                }
+                else
+                    Intent(BusStationAlarmApp.instance.applicationContext, LocationService::class.java).apply {
+                        action = LocationService.ACTION_STOP
+                        BusStationAlarmApp.instance.applicationContext.stopService(this)
+                    }
             }
         }
     }
@@ -68,5 +101,4 @@ class LocationListViewModel @Inject constructor(
     private fun sendUiEvent(event: UiEvent) {
         viewModelScope.launch { _uiEvent.send(event) }
     }
-
 }

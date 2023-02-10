@@ -72,6 +72,7 @@ class AddEditLocationViewModel @Inject constructor(
             null
         )
 
+        mapView!!.map.isRotateGesturesEnabled = false
         mapView!!.map.addTapListener(this)
         mapView!!.map.addInputListener(this)
         MapKitFactory.getInstance().onStart()

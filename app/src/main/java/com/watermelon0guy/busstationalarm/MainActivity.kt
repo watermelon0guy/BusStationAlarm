@@ -25,6 +25,7 @@ import com.watermelon0guy.busstationalarm.ui.add_edit_location.AddEditLocationSc
 import com.watermelon0guy.busstationalarm.ui.location_list.LocationListScreen
 import com.watermelon0guy.busstationalarm.ui.theme.BusStationAlarmTheme
 import com.watermelon0guy.busstationalarm.util.Routes
+import com.watermelon0guy.busstationalarm.util.location.LocationService
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -40,6 +41,14 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            ),
+            0
+        )
 //        locationManager = this.getSystemService(LOCATION_SERVICE) as LocationManager
 //        if (!isPermissionGranted()) requestPermission()
 //        if (!isGPSEnabled()) enableLocationSettings()
